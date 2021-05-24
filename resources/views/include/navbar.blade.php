@@ -3,10 +3,10 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Contacto</a>
       </li>
     </ul>
   </nav>
@@ -27,10 +27,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Contact</a>
+        <a href="/" class="nav-link">Contacto</a>
       </li>
     </ul>
 
@@ -156,13 +156,13 @@
       @guest
       @if (Route::has('login'))
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Inicio sesión') }}</a>
           </li>
       @endif
 
       @if (Route::has('register'))
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
           </li>
       @endif
       @else
@@ -175,7 +175,7 @@
               <a class="dropdown-item" href="{{ route('logout') }}"
                  onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
+                  {{ __('Salir') }}
               </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
