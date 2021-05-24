@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title','Inicio de sesión')
-@section('script-top')
+@section('js-top')
     @parent
 @endsection
-@section('script-bottom')
+@section('js-bottom')
     @parent
 @endsection
 @section('style')
