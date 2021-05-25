@@ -230,7 +230,7 @@ let mix = require('laravel-mix');
 ## Api
 - Api controller:
 
-      php artisan make:controller <ControllerName> --api.
+      php artisan make:controller <NameController> --api.
 - Api model:
 
       php artisan make:model <Name>
