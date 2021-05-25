@@ -16,7 +16,7 @@ class MateriaController extends Controller
     public function index()
     {
         //
-        return ["dada"=>"22d"];
+        return Materia::all();
     }
 
     /**
