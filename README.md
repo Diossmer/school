@@ -118,7 +118,7 @@ _ _ _
 - We re-install composer:
   
       sudo composer install
-- compositor resume
+- compositor resume:
       
       compositor dump-autoload
 _ _ _
