@@ -16,7 +16,7 @@ class CreateMateriasTable extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('codigo_escolar');
+            $table->string('codigo_escolar',8)->unique();
             $table->timestamps();
         });
     }

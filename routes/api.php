@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\MateriaController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('materia',[MateriaController::class,'index']);
+Route::post('materia',[MateriaController::class,'store']);
+Route::get('materia/{materia}',[MateriaController::class,'show']);
+Route::put('materia/{materia}',[MateriaController::class,'update']);
+Route::delete('materia/{materia}',[MateriaController::class,'destroy']);
