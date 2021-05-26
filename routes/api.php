@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\MateriaController;
-use Illuminate\Support\Facades\App;
+use App\Http\Controllers\AutenticarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +27,6 @@ Route::put('materia/{materia}',[MateriaController::class,'update']);
 Route::delete('materia/{materia}',[MateriaController::class,'destroy']); */
 
 Route::apiResource('materia',MateriaController::class);
+
+Route::post('registros',[AutenticarController::class,'registros']);
+Route::post('login',[AutenticarController::class,'accesologin']);
