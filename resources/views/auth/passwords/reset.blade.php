@@ -1,5 +1,17 @@
 @extends('layouts.app')
-
+@section('title','Olvido de contraseña')
+@section('js-top')
+    @parent
+@endsection
+@section('js-bottom')
+    @parent
+@endsection
+@section('style')
+    @parent
+@endsection
+@section('navbar')
+    @include('include.navbar')
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
