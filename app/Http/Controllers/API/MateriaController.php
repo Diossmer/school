@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ActualizarMateriaRequest;
 use App\Http\Requests\GuardarMateriaRequest;
+use App\Http\Resources\MateriaResource;
 use App\Models\Materia;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,11 @@ class MateriaController extends Controller
     {
         //
         $materia = Materia::all();
-        return view('api.materia',['materia'=>$materia]);
-        // return $materia;
+
+        $materia = MateriaResource::collection(Materia::all())->response()->setStatusCode(200);
+
+        // return view('api.materia',['materia'=>$materia]);
+        return $materia;
     }
 
     /**
@@ -32,11 +36,15 @@ class MateriaController extends Controller
     public function store(GuardarMateriaRequest $request)
     {
         //
-        Materia::create($request->all());
+        /* Materia::create($request->all());
         return response()->json([
             'res'=> true,
             'msg'=> 'Materia Guardada exitosamente.'
-        ],200);
+        ],200); */
+        return (new MateriaResource(Materia::create([
+            'nombre'=> $request->nombre,
+            'codigo_escolar'=>$request->codigo_escolar
+        ])))->additional(['message'=>'Materia agregado Correctamente'])->response()->setStatusCode(200);
     }
 
     /**
@@ -48,10 +56,11 @@ class MateriaController extends Controller
     public function show(Materia $materia)
     {
         //
-        return response()->json([
+        /* return response()->json([
             'res'=> true,
             'msg'=> $materia
-        ],200);
+        ],200); */
+        return (new MateriaResource($materia))->response()->setStatusCode(200);
     }
 
     /**
@@ -65,12 +74,17 @@ class MateriaController extends Controller
     public function update(ActualizarMateriaRequest $request, Materia $materia)
     {
         //
-        $materia->update($request->all());
+        /* $materia->update($request->all());
         return response()->json([
             'res'=> true,
             'status' => $request->getStatusCode(),
             'msg' => $request->getMessage()
-        ],200);
+        ],200); */
+        $materia->update($request->all());
+        return (new MateriaResource($materia))
+        ->additional(['message'=>"Materia actualizado"])
+        ->response()
+        ->setStatusCode(200);
     }
 
     /**
@@ -82,11 +96,16 @@ class MateriaController extends Controller
     public function destroy(Materia $materia)
     {
         //
-        $materia->delete();
+        /* $materia->delete();
         return response()->json([
             'res'=> true,
             'msg' => "Se ha eliminado correctamente"
-        ],200);
+        ],200); */
+        $materia->delete();
+        return (new MateriaResource($materia))
+        ->additional(['message'=>"Materia Eliminado correctamente"])
+        ->response()
+        ->setStatusCode(200);
     }
     /**
      * También se puede eliminar de esta forma el id

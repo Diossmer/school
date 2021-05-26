@@ -21,12 +21,12 @@ class ActualizarMateriaRequest extends FormRequest
      *
      * @return array
      */
-    public function getStatusCode(){
+    /* public function getStatusCode(){
         return 200;
     }
     public function getMessage(){
         return "Actualizado correctamente";
-    }
+    } */
     public function rules()
     {
         return [

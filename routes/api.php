@@ -20,8 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('materia',[MateriaController::class,'index']);
+/* Route::get('materia',[MateriaController::class,'index']);
 Route::post('materia',[MateriaController::class,'store']);
 Route::get('materia/{materia}',[MateriaController::class,'show']);
 Route::put('materia/{materia}',[MateriaController::class,'update']);
-Route::delete('materia/{materia}',[MateriaController::class,'destroy']);
+Route::delete('materia/{materia}',[MateriaController::class,'destroy']); */
+
+Route::apiResource('materia',MateriaController::class);
