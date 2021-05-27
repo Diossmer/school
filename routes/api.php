@@ -26,7 +26,9 @@ Route::get('materia/{materia}',[MateriaController::class,'show']);
 Route::put('materia/{materia}',[MateriaController::class,'update']);
 Route::delete('materia/{materia}',[MateriaController::class,'destroy']); */
 
-Route::apiResource('materia',MateriaController::class);
-
-Route::post('registros',[AutenticarController::class,'registros']);
 Route::post('login',[AutenticarController::class,'accesologin']);
+Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::apiResource('materia',MateriaController::class);
+    Route::post('registros',[AutenticarController::class,'registros']);
+});
+Route::middleware('auth:sanctum')->post('singout',[AutenticarController::class,'cerrarSesion']);

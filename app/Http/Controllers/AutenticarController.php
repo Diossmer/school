@@ -44,5 +44,9 @@ class AutenticarController extends Controller
     public function cerrarSesion(Request $request)
     {
        $request->user()->currentAccessToken()->delete();
+       return response()->json([
+        'res'=>true,
+        'msg'=>'token eliminado'
+    ],200);
     }
 }
