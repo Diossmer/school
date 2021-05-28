@@ -129,6 +129,9 @@ _ _ _
 - We re-install composer:
   
       sudo composer install
+- compositor resume:
+      
+      compositor dump-autoload
 _ _ _
 ## Install npm version(update)
 - Install npm:
@@ -233,4 +236,38 @@ let mix = require('laravel-mix');
       "postcss": "^8.*",
       }
 }
+```
+---
+## Api
+- Api controller:
+
+      php artisan make:controller <NameController> --api.
+- Api model:
+
+      php artisan make:model <Name>
+- For more information about artisan in the code we use "help":
+```code      
+php artisan help make:cast                   
+                 make:channel                
+                 make:command                
+                 make:component              
+                 make:controller             
+                 make:event                  
+                 make:exception              
+                 make:factory                
+                 make:job                    
+                 make:listener               
+                 make:mail                   
+                 make:middleware             
+                 make:migration              
+                 make:model                  
+                 make:notification           
+                 make:observer               
+                 make:policy                 
+                 make:supplier               
+                 make:request                
+                 make:appeal               
+                 make:rule                   
+                 make:seeder                 
+                 make:test
 ```
